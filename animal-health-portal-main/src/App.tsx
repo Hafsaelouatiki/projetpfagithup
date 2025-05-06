@@ -7,7 +7,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
-
 // Pages
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -17,11 +16,13 @@ import VeterinarianDashboard from "./pages/VeterinarianDashboard";
 import AdminDashboard from "./pages/AdminDashboard";
 import Events from "./pages/Events";
 import AppointmentBooking from "./pages/AppointmentBooking";
-import Services from "./pages/services";
+import Services from "./pages/Services";
 import Ventes from "./pages/Ventes";
 import Panier from "./pages/Panier";
 import Paiement from "./pages/Paiement";
 import Facture from "./pages/Facture";
+import Index from "./pages/Index";
+
 const queryClient = new QueryClient();
 
 const App = () => {
@@ -47,8 +48,6 @@ const App = () => {
                 <Route path="/events" element={<Events />} />
                 <Route path="/appointments" element={<AppointmentBooking />} />
                 <Route path="/services" element={<Services />} />
-
-                {/* Ventes avec panier */}
                 <Route
                   path="/ventes"
                   element={
@@ -60,15 +59,7 @@ const App = () => {
                     />
                   }
                 />
-
-                {/* Panier */}
-                <Route
-  path="/panier"
-  element={<Panier panier={panier} total={total} />}
-/>
-
-
-                {/* Paiement */}
+                <Route path="/panier" element={<Panier panier={panier} total={total} />} />
                 <Route
                   path="/paiement"
                   element={
@@ -82,15 +73,11 @@ const App = () => {
                     />
                   }
                 />
-
-                {/* Facture avec panier passé en props */}
                 <Route path="/facture" element={<Facture />} />
-
                 <Route path="/veterinaire" element={<VeterinarianDashboard />} />
-                <Route path="/patient" element={<PatientDashboard/>}/>
-                <Route path="/admin" element={<AdminDashboard/>}/>
+                <Route path="/patient" element={<PatientDashboard />} />
+                <Route path="/admin" element={<AdminDashboard />} />
               </Routes>
-              
             </main>
             <Footer />
           </div>
